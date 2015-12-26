@@ -3,6 +3,7 @@
 ini_set('memory_limit', substr('0223705295M', 1));
 error_reporting(E_ALL^E_NOTICE);
 
+#Source any online thesaurus 
 include_once 'bighugelabs_class.php';
 
 $synonyms = new BigHugeLabs();
@@ -13,7 +14,7 @@ class probabilityRandom {
 	var
 		$data = array(),
 		$universe = 0;
-		
+	#flattern array	
 	function makeRecursive($array =""){
 		$array = call_user_func_array('array_merge_recursive', $array);
 		foreach($array as $value){
@@ -86,5 +87,5 @@ foreach(array_count_values($test_array) as $prob_words => $val)
 	$prExample->add($prob_words, $val*100 );
 	
 };
-
+#Possible adjustment for array / prob ratio and inclusion to class!!
 for( $x=10; $x--; print strtolower( $prExample->get() ). '<br />' );
