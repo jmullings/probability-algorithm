@@ -41,7 +41,7 @@ class probabilityMatrix
      $this->p_array = array_count_values( $array );
 	 
      foreach ( $this->p_array as $words => $val ) {
-       $this->prob_array[$words] = ($val/count( array_unique( $array ) )) * 100;
+       $this->prob_array[$words] = $val/array_sum( $this->p_array ) * 100;
      }
      
      arsort( $this->prob_array );
